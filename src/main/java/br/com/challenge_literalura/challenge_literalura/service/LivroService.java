@@ -19,10 +19,8 @@ public class LivroService {
     private LivroRepository livroRepository;
 
     public void salvarLivroNoBanco(dadosLivros dados) {
-        // Pega o primeiro autor da lista
         dadosAutor autorDados = dados.autor().get(0);
 
-        // Busca ou cria autor
         Autor autor = autorRepository.findAll().stream()
                 .filter(a -> a.getNome().equalsIgnoreCase(autorDados.nome()))
                 .findFirst()
@@ -34,7 +32,6 @@ public class LivroService {
                     return autorRepository.save(novoAutor);
                 });
 
-        // Cria e salva livro
         Livro livro = new Livro();
         livro.setTitulo(dados.titulo());
         livro.setIdioma(dados.idioma().isEmpty() ? "desconhecido" : dados.idioma().get(0));
@@ -45,10 +42,4 @@ public class LivroService {
         System.out.println("Livro salvo com sucesso! ID do Autor: " + autor.getId());
 
     }
-
-    public List<Livro> buscarTodosLivros() {
-        return livroRepository.findAll();
-    }
-
-
 }

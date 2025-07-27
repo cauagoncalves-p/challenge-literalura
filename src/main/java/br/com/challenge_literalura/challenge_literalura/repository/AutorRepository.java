@@ -11,7 +11,13 @@ public interface AutorRepository extends JpaRepository<Autor,Long>{
     @Query("SELECT DISTINCT a FROM Autor a LEFT JOIN FETCH a.livros")
     List<Autor> buscarTodosComLivros();
 
-
-
-
+    @Query("""
+    SELECT DISTINCT a
+    FROM Autor a
+    LEFT JOIN FETCH a.livros
+    WHERE a.anoDeNascimento <= :anoBusca
+      AND (a.anoDeFalecimento IS NULL OR a.anoDeFalecimento > :anoBusca)
+    """)
+    List<Autor> buscarAutoresVivos(int anoBusca);
 }
+

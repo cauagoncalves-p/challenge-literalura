@@ -8,7 +8,7 @@ import br.com.challenge_literalura.challenge_literalura.principal.Principal;
 @SpringBootApplication
 public class ChallengeLiteraluraApplication implements CommandLineRunner {
 	@Autowired
-	private Principal principal; // Injetado pelo Spring
+	private Principal principal;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ChallengeLiteraluraApplication.class, args);
@@ -16,6 +16,6 @@ public class ChallengeLiteraluraApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		principal.exibirMenu();  // usa a instância gerenciada pelo Spring
+		principal.exibirMenu();
 	}
 }

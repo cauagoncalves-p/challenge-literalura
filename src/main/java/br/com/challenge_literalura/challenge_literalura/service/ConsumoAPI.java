@@ -22,10 +22,6 @@ public class ConsumoAPI {
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
-
-        System.out.println("🌐 Status code: " + response.statusCode());
-        System.out.println("📥 Resposta bruta: " + response.body());
-
         return response.body();
     }
 }

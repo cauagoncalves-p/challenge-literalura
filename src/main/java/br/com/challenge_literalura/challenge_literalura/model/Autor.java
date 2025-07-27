@@ -15,9 +15,9 @@ public class Autor {
     private String nome;
 
     @Column(nullable = false)
-    private LocalDate anoDeNascimento;
+    private Integer anoDeNascimento;
 
-    private LocalDate anoDeFalecimento;
+    private Integer anoDeFalecimento;
 
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Livro> livros;
@@ -29,11 +29,11 @@ public class Autor {
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
 
-    public LocalDate getAnoDeNascimento() { return anoDeNascimento; }
-    public void setAnoDeNascimento(LocalDate anoDeNascimento) { this.anoDeNascimento = anoDeNascimento; }
+    public Integer getAnoDeNascimento() { return anoDeNascimento; }
+    public void setAnoDeNascimento(Integer anoDeNascimento) { this.anoDeNascimento = anoDeNascimento; }
 
-    public LocalDate getAnoDeFalecimento() { return anoDeFalecimento; }
-    public void setAnoDeFalecimento(LocalDate anoDeFalecimento) { this.anoDeFalecimento = anoDeFalecimento; }
+    public Integer getAnoDeFalecimento() { return anoDeFalecimento; }
+    public void setAnoDeFalecimento(Integer anoDeFalecimento) { this.anoDeFalecimento = anoDeFalecimento; }
 
     public List<Livro> getLivros() { return livros; }
     public void setLivros(List<Livro> livros) { this.livros = livros; }
